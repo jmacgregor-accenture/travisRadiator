@@ -7,3 +7,4 @@ script:
     - cd /home/travis/build/jmacgregor-accenture/travisRadiator/DotNetCore/TravisRadiator/
     - dotnet restore
     - dotnet build
+    - dotnet test
