@@ -53,5 +53,17 @@ namespace TravisRadiator.Tests
 
             result.ShouldContain(testUser);
         }
+
+        [Fact]
+        public void WhileGettingRepos_WorkingNonTokenUser_ReturnHasExpectedRepo()
+        {
+            var apiService = new TravisApiExperiment();
+            var testUser = "mmuir-accenture";
+            var expectedRepo = "travisToy";
+
+            var result = apiService.GetRepos(testUser);
+
+            result.ShouldContain(testUser);
+        }
     }
 }
