@@ -2,7 +2,7 @@
 
 namespace TravisRadiator.ApiService
 {
-    public class Class1
+    public class TravisApiExperiment
     {
     }
 }

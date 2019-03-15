@@ -4,7 +4,7 @@ using Xunit;
 
 namespace TravisRadiator.Tests
 {
-    public class StandInTestClass
+    public class TravisApiExperimentTests
     {
         [Fact]
         public void GarbageTest()
