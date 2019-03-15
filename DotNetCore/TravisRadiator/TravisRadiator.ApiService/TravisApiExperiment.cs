@@ -13,9 +13,7 @@ namespace TravisRadiator.ApiService
             
             
             var request = new RestRequest($"/owner/{userId}", Method.GET);
-            request.AddHeader("Travis-API-Version", "3");
-            request.AddHeader("User-Agent", "JDM-DotNet");
-            request.AddHeader("Authorization",$"token {TRAVIS_TOKEN}");
+            AddHeaders(request);
 
             var response = _client.Execute(request);
 
@@ -25,9 +23,7 @@ namespace TravisRadiator.ApiService
         public string GetUser()
         {
             var request = new RestRequest($"/user", Method.GET);
-            request.AddHeader("Travis-API-Version", "3");
-            request.AddHeader("User-Agent", "JDM-DotNet");
-            request.AddHeader("Authorization",$"token {TRAVIS_TOKEN}");
+            AddHeaders(request);
 
             var response = _client.Execute(request);
 
@@ -37,13 +33,18 @@ namespace TravisRadiator.ApiService
         public string GetRepos(string userName)
         {
             var request = new RestRequest($"/owner/{userName}/repos", Method.GET);
-            request.AddHeader("Travis-API-Version", "3");
-            request.AddHeader("User-Agent", "JDM-DotNet");
-            request.AddHeader("Authorization",$"token {TRAVIS_TOKEN}");
+            AddHeaders(request);
 
             var response = _client.Execute(request);
 
             return response.Content;
+        }
+
+        private void AddHeaders(RestRequest request)
+        {
+            request.AddHeader("Travis-API-Version", "3");
+            request.AddHeader("User-Agent", "JDM-DotNet");
+            request.AddHeader("Authorization",$"token {TRAVIS_TOKEN}");
         }
     }
 }
